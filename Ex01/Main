@@ -1,0 +1,43 @@
+package Aula02.Ex01;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        ContaBancaria c1 = new ContaBancaria();
+        Scanner scanner = new Scanner(System.in);
+
+        int menu;
+        do{
+            System.out.println("----   BANCO   ----");
+            System.out.println("1 - Depósito");
+            System.out.println("2 - Saque ");
+            System.out.println("3 - Verificar saldo");
+            System.out.println("4 - SAIR");
+            menu = scanner.nextInt();
+
+            switch (menu){
+                case 1:
+                    System.out.println("Qual o valor do depósito:");
+                    int deposito = scanner.nextInt();
+                    c1.depositar(deposito);
+
+                    break;
+                case 2:
+                    System.out.println("Qual o valor do saque:");
+                    int saque = scanner.nextInt();
+                    c1.sacar(saque);
+
+                    break;
+                case 3:
+                    System.out.println("Seu saldo atual é: "+c1.verificaSaldo());
+                    break;
+                case 4:
+                    break;
+                default:
+                    System.out.println("invalido");
+            }
+
+        }while(menu != 4);
+    }
+}
