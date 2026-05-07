@@ -1,0 +1,41 @@
+package Aula02.Ex02;
+
+public class Lampada {
+
+    private boolean ligado;
+    private int potencia;
+
+    //metodo especial
+    public void ligaDesliga(boolean ligado){
+        this.ligado = ligado;
+
+        if(this.ligado){
+            System.out.println("Esta ligada.");
+        }else{
+            System.out.println("Esta desligada");
+            this.potencia = 0;
+        }
+    }
+
+    public void setPotencia(int potencia){
+        if (this.ligado){
+            this.potencia = potencia;
+            System.out.println("Potencia atual: "+potencia);
+        }else{
+            System.out.println("Ligue a lampada para mudar a potencia");
+        }
+
+    }
+
+    public void setLigado(boolean ligado) {
+        ligaDesliga(ligado);//retorna pro metodo espacial
+    }
+
+    public boolean getLigado() {
+        return ligado;
+    }
+
+    public int getPotencia() {
+        return potencia;
+    }
+}
