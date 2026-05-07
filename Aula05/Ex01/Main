@@ -1,0 +1,20 @@
+package Aula05.Ex01;
+
+public class Main {
+    public static void main(String[] args) {
+
+        ContaPoupanca p1 = new ContaPoupanca("Ana","0001","34325",0, 10);
+        p1.statusConta();
+        p1.depositar(1600);
+        p1.calcularNovoSaldo(0.6);
+        p1.sacar(100);
+
+        System.out.println("------------------------------------");
+
+        ContaEspecial e1 = new ContaEspecial("André","0002","34324",100,500);
+        e1.statusConta();
+        e1.sacar(150);
+
+
+    }
+}
