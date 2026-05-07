@@ -1,0 +1,19 @@
+package Aula03.Ex04;
+
+public class Livro {
+    private String tituloLivro;
+    private String autorLivro;
+    private int anoLivro;
+
+    public Livro(String tituloLivro, String autorLivro) {
+        this.tituloLivro = tituloLivro;
+        this.autorLivro = autorLivro;
+        this.anoLivro = 2023;
+    }
+
+    public void statusLivro(){
+        System.out.println("Titulo: "+tituloLivro);
+        System.out.println("Autor: "+autorLivro);
+        System.out.println("Ano :"+anoLivro);
+    }
+}
