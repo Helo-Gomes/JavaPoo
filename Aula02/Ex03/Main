@@ -1,0 +1,16 @@
+package Aula02.Ex03;
+
+public class Main {
+    public static void main(String[] args) {
+        Funcionario f1 = new Funcionario();
+        f1.setNomeFuncionario("Ana");
+        f1.setCpfFuncionario("12423534");
+        f1.setCodigoFuncionario(12345);
+        f1.setNascimentoFuncionario("11-09-2000");
+        f1.setSalarioFuncionario(1780.90);
+        f1.defineAumento(0.5);
+        f1.exibirInformacoes();
+
+
+    }
+}
