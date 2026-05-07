@@ -1,0 +1,67 @@
+package Aula05.Ex01;
+
+public class ContaBancaria {
+
+    private String nomeCliente;
+    private String numeroAgencia;
+    private String numeroConta;
+    protected double saldo;
+
+    public ContaBancaria(String nomeCliente, String numeroAgencia, String numeroConta, double saldo) {
+        this.nomeCliente = nomeCliente;
+        this.numeroAgencia = numeroAgencia;
+        this.numeroConta = numeroConta;
+        this.saldo = saldo;
+    }
+
+    public void depositar(double valor) {
+        if (valor > 0) {
+            saldo += valor;
+            System.out.println("Depósito de R$" + valor + " realizado. Saldo atual: R$" + saldo);
+        } else {
+            System.out.println("Valor de depósito inválido.");
+        }
+    }
+
+    public void sacar(double valor) {
+        if (valor <= 0) {
+            System.out.println("Valor inválido para saque.");
+        } else if (valor > saldo) {
+            System.out.println("Saldo insuficiente! Saldo atual: R$" + saldo);
+        } else {
+            saldo -= valor;
+            System.out.println("Saque de R$" + valor + " realizado. Saldo atual: R$" + saldo);
+        }
+    }
+
+    public double verificaSaldo() {
+        return saldo;
+    }
+
+    public void statusConta(){
+        System.out.println("Cliente: "+nomeCliente);
+        System.out.println("Nº Agência: "+numeroAgencia);
+        System.out.println("Nº Conta: "+numeroConta);
+        System.out.println("Saldo: R$"+saldo);
+    }
+
+    public String getNomeCliente() {
+        return nomeCliente;
+    }
+
+    public String getNumeroAgencia() {
+        return numeroAgencia;
+    }
+
+    public String getNumeroConta() {
+        return numeroConta;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+}
