@@ -1,0 +1,26 @@
+package Aula03.Ex05;
+
+public class Aluno {
+    private String nomeAluno;
+    private int idadeAluno;
+    private String cursoAluno;
+
+    public Aluno(String nomeAluno, int idadeAluno, String cursoAluno) {
+        this.nomeAluno = nomeAluno;
+        this.idadeAluno = idadeAluno;
+        this.cursoAluno = cursoAluno;
+    }
+    public Aluno(String nomeAluno) {
+        this.nomeAluno = nomeAluno;
+    }
+    public Aluno(String nomeAluno, int idadeAluno) {
+        this.nomeAluno = nomeAluno;
+        this.idadeAluno = idadeAluno;
+    }
+
+    public void statusAluno(){
+        System.out.println("Nome :"+nomeAluno);
+        System.out.println("Idade :"+idadeAluno);
+        System.out.println("Curso :"+cursoAluno);
+    }
+}
