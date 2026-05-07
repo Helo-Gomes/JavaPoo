@@ -1,0 +1,80 @@
+package Aula02.Ex03;
+
+public class Funcionario {
+
+    //atributos da classe----------------
+    private String nomeFuncionario;
+    private String nascimentoFuncionario;
+    private String cpfFuncionario;
+    private int codigoFuncionario;
+    private double salarioFuncionario;
+    private double aumentoFuncionario;
+
+
+    //metodos especiais--------------
+
+    public void defineAumento(double porcentagem){
+       aumentoFuncionario = salarioFuncionario * porcentagem;
+       salarioFuncionario += aumentoFuncionario;
+        System.out.println("Aumento de: R$"+aumentoFuncionario);
+    }
+    //metodo de exibir as informações, não colocar direto nos getters
+    public void exibirInformacoes() {
+        System.out.println("Nome: "            + nomeFuncionario);
+        System.out.println("Nascimento: "      + nascimentoFuncionario);
+        System.out.println("CPF: "             + cpfFuncionario);
+        System.out.println("Código: "          + codigoFuncionario);
+        System.out.println("Salário atual: R$" + salarioFuncionario);
+    }
+    //setters/getters----------------
+
+    public void setSalarioFuncionario(double salarioFuncionario) {
+        if (salarioFuncionario > 1518){
+            this.salarioFuncionario = salarioFuncionario;
+            System.out.println("Salário do funcionário : R$"+salarioFuncionario);
+        }else{
+            System.out.println("Defina um sálario igual ou maior que o salário mínimo vigente.");
+        }
+    }
+
+
+    public double getSalarioFuncionario() {
+        return salarioFuncionario;
+    }
+
+    public double getAumentoFuncionario() {
+        return aumentoFuncionario;
+    }
+
+    public String getNomeFuncionario() {
+        return nomeFuncionario;
+    }
+
+    public void setNomeFuncionario(String nomeFuncionario) {
+        this.nomeFuncionario = nomeFuncionario;
+    }
+
+    public String getNascimentoFuncionario() {
+        return nascimentoFuncionario;
+    }
+
+    public void setNascimentoFuncionario(String nascimentoFuncionario) {
+        this.nascimentoFuncionario = nascimentoFuncionario;
+    }
+
+    public String getCpfFuncionario() {
+        return cpfFuncionario;
+    }
+
+    public void setCpfFuncionario(String cpfFuncionario) {
+        this.cpfFuncionario = cpfFuncionario;
+    }
+
+    public int getCodigoFuncionario() {
+        return codigoFuncionario;
+    }
+
+    public void setCodigoFuncionario(int codigoFuncionario) {
+        this.codigoFuncionario = codigoFuncionario;
+    }
+}
