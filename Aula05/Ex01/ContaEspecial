@@ -1,0 +1,31 @@
+package Aula05.Ex01;
+
+public class ContaEspecial extends ContaBancaria{
+    private double limiteChequeEspecial;
+
+    public ContaEspecial(String nomeCliente, String numeroAgencia, String numeroConta, double saldo, double limiteChequeEspecial) {
+        super(nomeCliente, numeroAgencia, numeroConta, saldo);
+        this.limiteChequeEspecial = limiteChequeEspecial;
+    }
+
+    public void sacar(double valor) {
+        double saldoDisponivel = getSaldo() + limiteChequeEspecial;
+
+        if (valor <= 0) {
+            System.out.println("Valor inválido para saque.");
+        } else if (valor > saldoDisponivel) {
+            System.out.println("Limite insuficiente! Saldo + Cheque especial: R$" + saldoDisponivel);
+        } else {
+            setSaldo(getSaldo() - valor);
+            System.out.println("Saque de R$" + valor + " realizado. Saldo atual: R$" + getSaldo());
+        }
+    }
+
+    public double getLimiteChequeEspecial() {
+        return limiteChequeEspecial;
+    }
+
+    public void setLimiteChequeEspecial(double limiteChequeEspecial) {
+        this.limiteChequeEspecial = limiteChequeEspecial;
+    }
+}
