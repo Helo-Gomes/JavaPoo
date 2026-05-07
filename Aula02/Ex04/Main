@@ -1,0 +1,35 @@
+package Aula02.Ex04;
+
+public class Main {
+    public static void main(String[] args) {
+        CalculadoraGeometrica g1 = new CalculadoraGeometrica();
+
+        //Circulo chamada
+        //raio circulo
+        g1.setRaioCirculo(13.08);
+        //area circulo
+        g1.calculoAreaCirculo();
+        //perimetro circulo
+        g1.calculoPerimetroCirculo();
+
+        g1.separa();
+
+        //Retangulo chamada
+        g1.setBaseRetangulo(3.6);
+        g1.setAlturaRetangulo(4.8);
+        g1.calculoAreaRetangulo();
+        g1.calculoPerimetroRetangulo();
+
+        g1.separa();
+
+        //triangulo chamada
+        g1.setBaseTriangulo(3.6);
+        g1.setAlturaTriangulo(5.7);
+        g1.calculoAreaTriangulo();
+        g1.setL1Triangulo(2.4);
+        g1.setL2Triangulo(4.4);
+        g1.setL3Triangulo(3.4);
+        g1.calculoPerimetroTriangulo();
+
+    }
+}
