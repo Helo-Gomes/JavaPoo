@@ -1,0 +1,12 @@
+package Aula04.Ex01;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Conta conta1 = new Conta("Ana Heloisa","123.456.78-90");
+
+        conta1.deposito(100);
+        conta1.saque(50);
+        conta1.exibirExtrato();
+    }
+}
