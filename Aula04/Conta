@@ -1,0 +1,76 @@
+package Aula04.Ex01;
+
+public class Conta {
+
+    private String numeroDocumento;
+    private String numeroAgencia;
+    private String nomeTitular;
+    private String cpf;
+    private String email;
+    private double saldo;
+
+    public Conta(String nomeTitular, String cpf) {
+        this.nomeTitular = nomeTitular;
+        this.cpf = cpf;
+        this.saldo = 0;
+    }
+
+    //metodos personalizados
+
+    public double deposito(double valor){
+        if(valor > 0){
+            valor += saldo;
+            this.saldo = valor;
+            System.out.println("Depósito realizado com sucesso.");
+        }else {
+            System.out.println("O valor do depósito precisa ser maior que 0.");
+        }
+
+        return saldo;
+    }
+
+    public double saque(double valor){
+        if(valor <= saldo && valor > 0){
+            saldo -= valor;
+            this.saldo = saldo;
+            System.out.println("Pix realizado com sucesso.");
+        }else{
+            System.out.println("Saldo insuficiente.");
+        }
+        return saldo;
+    }
+
+    public void exibirExtrato(){
+        System.out.println(nomeTitular);
+        System.out.println("Documento :"+numeroDocumento);
+        System.out.println("Agência:"+numeroAgencia);
+        System.out.println("Saldo atual: R$"+saldo);
+    }
+
+    //getters/setters
+
+
+    public String getNumeroDocumento() {
+        return numeroDocumento;
+    }
+
+    public String getNumeroAgencia() {
+        return numeroAgencia;
+    }
+
+    public String getNomeTitular() {
+        return nomeTitular;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+}
