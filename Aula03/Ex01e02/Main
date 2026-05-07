@@ -1,0 +1,9 @@
+package Aula03.Ex01e02;
+
+public class Main {
+    public static void main(String[] args) {
+        Carro c1 = new Carro("1999","Uno");
+
+        c1.status();
+    }
+}
