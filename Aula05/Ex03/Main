@@ -1,0 +1,19 @@
+package Aula05.Ex03;
+
+public class Main {
+    public static void main(String[] args) {
+//
+//        Produto p1 = new Produto("livro",50,1234);
+//        p1.descricaoProduto();
+
+        Livro livro1 = new Livro("livro",50,1234,"Heloisa",190,"Heloisa livros");
+        livro1.descricaoProduto();
+        livro1.descricaoLivro();
+
+        System.out.println("----");
+
+        Cd cd1 = new Cd("CD",60,1111,"Madona",13,"Records");
+        cd1.descricaoProduto();
+        cd1.descricaoCd();
+    }
+}
