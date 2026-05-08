@@ -1,0 +1,49 @@
+package Aula05.Ex03;
+
+public class Produto {
+    private String nomeProduto;
+    private double valorProduto;
+    private int codigoProduto;
+
+//contructor
+    public Produto(String nomeProduto, double valorProduto, int codigoProduto) {
+        this.nomeProduto = nomeProduto;
+        this.valorProduto = valorProduto;
+        this.codigoProduto = codigoProduto;
+    }
+
+    //metodos especiais
+
+    public void descricaoProduto(){
+        System.out.println("Produto: "+getNomeProduto());
+        System.out.println("Valor: R$"+getValorProduto());
+        System.out.println("Código: "+getCodigoProduto());
+    }
+
+
+    //get/set
+
+    public String getNomeProduto() {
+        return nomeProduto;
+    }
+
+    public void setNomeProduto(String nomeProduto) {
+        this.nomeProduto = nomeProduto;
+    }
+
+    public double getValorProduto() {
+        return valorProduto;
+    }
+
+    public void setValorProduto(double valorProduto) {
+        this.valorProduto = valorProduto;
+    }
+
+    public int getCodigoProduto() {
+        return codigoProduto;
+    }
+
+    public void setCodigoProduto(int codigoProduto) {
+        this.codigoProduto = codigoProduto;
+    }
+}
