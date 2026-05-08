@@ -1,0 +1,46 @@
+package Aula05.Ex03;
+
+public class Cd extends Produto{
+
+    private String nomeArtista;
+    private int qtdMusica;
+    private String gravadora;
+
+
+    public Cd(String nomeProduto, double valorProduto, int codigoProduto, String nomeArtista,int qtdMusica, String gravadora) {
+        super(nomeProduto, valorProduto, codigoProduto);
+
+        this.nomeArtista = nomeArtista;
+        this.qtdMusica = qtdMusica;
+        this.gravadora = gravadora;
+    }
+
+
+    public void descricaoCd(){
+        System.out.println("Artista: "+getNomeArtista());
+    }
+
+    public String getNomeArtista() {
+        return nomeArtista;
+    }
+
+    public void setNomeArtista(String nomeArtista) {
+        this.nomeArtista = nomeArtista;
+    }
+
+    public int getQtdMusica() {
+        return qtdMusica;
+    }
+
+    public void setQtdMusica(int qtdMusica) {
+        this.qtdMusica = qtdMusica;
+    }
+
+    public String getGravadora() {
+        return gravadora;
+    }
+
+    public void setGravadora(String gravadora) {
+        this.gravadora = gravadora;
+    }
+}
