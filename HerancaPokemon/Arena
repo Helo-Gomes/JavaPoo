@@ -1,0 +1,43 @@
+package Aula05.Ex05;
+
+public class Arena {
+    public static void main(String[] args) {
+
+                PokemonAgua psyduck =
+                        new PokemonAgua(
+                                "Psyduck","Agua",   100,50,40, 60);
+
+                PokemonFogo charmander =
+                        new PokemonFogo("Charmander","Fogo",90,70,35,80);
+
+                PokemonPlanta bulbasaur =
+                        new PokemonPlanta(
+                                "Bulbasaur","Planta",110,45, 60,40);
+
+                 // PSYDUCK
+                psyduck.mostrarStats();
+                psyduck.emitirSom();
+                psyduck.mostrarAtaques();
+                psyduck.usarAtaqueAgua();;
+                psyduck.nadar();
+
+                // CHARMANDER
+
+                charmander.mostrarStats();
+                charmander.emitirSom();
+                charmander.mostrarAtaques();
+                charmander.usarAtaqueFogo();
+                charmander.descansarNaLava();
+
+                // BULBASAUR
+
+                bulbasaur.mostrarStats();
+                bulbasaur.emitirSom();
+                bulbasaur.mostrarAtaques();
+                bulbasaur.ataquePlanta();
+                bulbasaur.fazerFotossintese();
+                bulbasaur.crescer();
+            }
+        }
+
+
