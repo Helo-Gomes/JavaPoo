@@ -1,0 +1,49 @@
+package Aula05.Ex03;
+
+public class Livro extends Produto{
+
+    private String autor;
+    private int qtdPaginas;
+    private String editora;
+
+
+    public Livro(String nomeProduto, double valorProduto, int codigoProduto,String autor,int qtdPaginas,String editora) {
+        super(nomeProduto, valorProduto, codigoProduto);
+        //passo o construtor dos atributos
+        this.autor = autor;
+        this.qtdPaginas = qtdPaginas;
+        this.editora = editora;
+    }
+    // Metodo especial
+
+    public void descricaoLivro(){
+        System.out.println("Autor: "+getAutor());
+        System.out.println("Páginas: "+getQtdPaginas());
+        System.out.println("Editora: "+getEditora());
+    }
+
+    //get\set
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public int getQtdPaginas() {
+        return qtdPaginas;
+    }
+
+    public void setQtdPaginas(int qtdPaginas) {
+        this.qtdPaginas = qtdPaginas;
+    }
+
+    public String getEditora() {
+        return editora;
+    }
+
+    public void setEditora(String editora) {
+        this.editora = editora;
+    }
+}
