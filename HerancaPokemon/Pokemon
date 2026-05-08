@@ -1,0 +1,152 @@
+package Aula05.Ex05;
+
+public class Pokemon {
+
+    private String nomePokemon;
+    private String tipoPokemon;
+    private int hp;
+    private int ataque;
+    private int defesa;
+    private int velocidade;
+    private int batalhasGanhas;
+
+    public Pokemon(String nomePokemon, String tipoPokemon, int hp,
+                   int ataque, int defesa, int velocidade) {
+
+        this.nomePokemon = nomePokemon;
+        this.tipoPokemon = tipoPokemon;
+        this.hp = hp;
+        this.ataque = ataque;
+        this.defesa = defesa;
+        this.velocidade = velocidade;
+    }
+
+    //Metodos especiais
+
+    public void mostrarStats(){
+
+        System.out.println("::::::::::::::::::::::::::::::::::");
+        System.out.println("           POKEMON STATS          ");
+        System.out.println("::::::::::::::::::::::::::::::::::");
+        System.out.println("Nome: " + getNomePokemon());
+        System.out.println("Tipo: " + getTipoPokemon());
+        System.out.println("HP: " + getHp());
+        System.out.println("Ataque: " + getAtaque());
+        System.out.println("Defesa: " + getDefesa());
+        System.out.println("Velocidade: " + getVelocidade());
+        System.out.println("..................................");
+    }
+
+    public boolean estaVivo(){
+        return getHp() > 0;
+    }
+
+    public void evoluir(int quantidadeBatalhas){
+        if (getBatalhasGanhas() > 3){ //se ganhar 3 batalhas evolui
+            this.hp+=10;
+            this.ataque+=5;
+            this.defesa+=5;
+        System.out.println("Hp :"+getHp()+"Ataque :"+getAtaque()+"Defesa :"+getDefesa());
+            System.out.println(getNomePokemon()+ " está evoluindo...");
+        }
+    }
+    public void treinar(){
+        this.ataque += 2; //ganha ataque
+        this.hp -=1; //cansa
+
+        if(hp < 0){ //não deixar hp negativo
+            this.hp = 0;
+        }
+        System.out.println("Treinando seu "+getNomePokemon());
+    }
+
+    public void descansar(){
+        if (hp < 100) { //limite de hp
+            hp += 10; //recupera vida
+            System.out.println(getNomePokemon()+ "descansou!");
+        }
+        if(getHp() > 100){
+            setHp(100);
+        }
+    }
+    public boolean desmaiar(boolean desmaiou){
+        if (hp == 0){
+            desmaiou = true;
+            System.out.println(getNomePokemon()+" desmaiou");
+        }
+        return desmaiou;
+    }
+    void emitirSom() {
+        System.out.println(getNomePokemon()+" fazendo som");
+    }
+
+    void validarHp() {
+        if(getHp() < 0) {
+            hp = 0;
+        }
+
+        if(getHp() > 100) {
+            hp = 100;
+        }
+    }
+
+
+
+    //Getters/Setters
+
+    public String getNomePokemon() {
+        return nomePokemon;
+    }
+
+    public void setNomePokemon(String nomePokemon) {
+        this.nomePokemon = nomePokemon;
+    }
+
+    public String getTipoPokemon() {
+        return tipoPokemon;
+    }
+
+    public void setTipoPokemon(String tipoPokemon) {
+        this.tipoPokemon = tipoPokemon;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    public int getAtaque() {
+        return ataque;
+    }
+
+    public void setAtaque(int ataque) {
+        this.ataque = ataque;
+    }
+
+    public int getDefesa() {
+        return defesa;
+    }
+
+    public void setDefesa(int defesa) {
+        this.defesa = defesa;
+    }
+
+    public int getVelocidade() {
+        return velocidade;
+    }
+
+    public void setVelocidade(int velocidade) {
+        this.velocidade = velocidade;
+    }
+
+    public int getBatalhasGanhas() {
+        return batalhasGanhas;
+    }
+
+    public void setBatalhasGanhas(int batalhasGanhas) {
+        this.batalhasGanhas = batalhasGanhas;
+    }
+}
