@@ -1,0 +1,17 @@
+package Aula05.Ex04;
+
+public class Main {
+    public static void main(String[] args) {
+        Fornecedor f1 = new Fornecedor("José","São paulo -sp",
+                "11 91234-5678",1500,1000);
+        f1.dadosPessoa();
+        f1.obterSaldo(f1.getValorCredito());
+
+        System.out.println("-------");
+
+        Empregado e1 = new Empregado("Maria","Salvador - BA",
+                "1234-5678",2222,3867.9,10);
+        e1.dadosPessoa();
+        e1.calcularSalario(e1.getSalarioBase());
+    }
+}
