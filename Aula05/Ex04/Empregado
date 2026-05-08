@@ -1,0 +1,57 @@
+package Aula05.Ex04;
+
+public class Empregado extends Pessoa{
+
+    private int codigoSetor;
+    private double salarioBase;
+    private double impostos;
+
+
+    public Empregado(String nome, String endereco, String telefone
+    ,int codigoSetor, double salarioBase,double impostos) {
+        super(nome, endereco, telefone);
+        this.codigoSetor = codigoSetor;
+        this.salarioBase = salarioBase;
+        this.impostos = impostos;
+    }
+    //metodo especial
+
+    public void calcularSalario(double salarioLiquido){
+
+        //salario - salario*(impostos/100)
+        // salarioLiquido = salarioBase - salarioBase*(impostos/100);
+        if(impostos > 0){
+            setSalarioBase(getSalarioBase()-getSalarioBase()*getImpostos()/100);
+            System.out.println("O valor do salário líquido é: R$"+getSalarioBase());
+        }else{
+            System.out.println("Para calcular o Sálario, insira um valor de impostos valido.");
+        }
+
+    }
+
+    //get/set
+
+    public int getCodigoSetor() {
+        return codigoSetor;
+    }
+
+    public void setCodigoSetor(int codigoSetor) {
+        this.codigoSetor = codigoSetor;
+    }
+
+    public double getSalarioBase() {
+        return salarioBase;
+    }
+
+    public void setSalarioBase(double salarioBase) {
+        this.salarioBase = salarioBase;
+    }
+
+    public double getImpostos() {
+        return impostos;
+    }
+
+    public void setImpostos(double impostos) {
+        this.impostos = impostos;
+    }
+}
