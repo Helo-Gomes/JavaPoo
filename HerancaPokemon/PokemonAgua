@@ -1,0 +1,117 @@
+package Aula05.Ex05;
+
+public class PokemonAgua extends Pokemon{
+
+    private String ataqueTipoAgua;
+    private String ataqueAguaEspecial;
+
+
+    public PokemonAgua(String nomePokemon, String tipoPokemon, int hp, int ataque,
+                       int defesa, int velocidade) {
+        super(nomePokemon, tipoPokemon, hp, ataque, defesa, velocidade);
+
+        this.ataqueTipoAgua = "Surf";
+        this.ataqueAguaEspecial ="Waterfall";
+    }
+
+
+    //metodos especiais tipo agua
+
+    public void mostrarAtaques(){
+        System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⣤⡀⠀⣶⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠙⣿⣆⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠸⣷⣮⣿⣿⣄⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⢀⡠⠒⠉⠀⠀⠀⠀⠀⠀⠈⠁⠲⢖⠒⡀⠀⠀\n" +
+                "⠀⠀⠀⡠⠴⣏⠀⢀⡀⠀⢀⡀⠀⠀⠀⡀⠀⠀⡀⠱⡈⢄⠀\n" +
+                "⠀⠀⢠⠁⠀⢸⠐⠁⠀⠄⠀⢸⠀⠀⢎⠀⠂⠀⠈⡄⢡⠀⢣\n" +
+                "⠀⢀⠂⠀⠀⢸⠈⠢⠤⠤⠐⢁⠄⠒⠢⢁⣂⡐⠊⠀⡄⠀⠸\n" +
+                "⠀⡘⠀⠀⠀⢸⠀⢠⠐⠒⠈⠀⠀⠀⠀⠀⠀⠈⢆⠜⠀⠀⢸\n" +
+                "⠀⢃⠀⠀⠀⢀⠃⢠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠷⡃⠀\n" +
+                "⠀⠈⠢⣤⠀⠈⠀⠀⠑⠠⠤⣀⣀⣀⣀⣀⡀⠤⠒⠁⠀⢡⠀\n" +
+                "⠑⢄⠉⢳⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡸⠀\n" +
+                "⠀⠀⠑⠢⢱⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡴⠁⠀\n" +
+                "⠀⠀⠀⠀⢀⠠⠓⠢⠤⣀⣀⡀⠀⠀⣀⣀⡀⠤⠒⠑⢄⠀⠀\n" +
+                "⠀⠀⠀⠰⠥⠤⢄⢀⡠⠄⡈⡀⠀⠀⣇⣀⠠⢄⠀⠒⠤⠣⠀\n" );
+
+        System.out.println(getAtaqueTipoAgua());
+        System.out.println(getAtaqueAguaEspecial());
+
+    }
+
+
+    public void usarAtaqueAgua(){
+        if(estaVivo()){//pokemon só consegue atacar se não estiver desmaiado
+            setHp(getHp() - 10);//perde hp ao atacar
+            System.out.println(getNomePokemon()+" usou "+getAtaqueTipoAgua()+" Splash!");
+        }
+
+    }
+
+    public void usarAtaqueEspecial(){ //se o HP estiver alto consigo usar ataque especial
+
+        if(getHp() >= 30){
+
+            setHp(getHp() - 20);
+
+            System.out.println(getNomePokemon()+
+                    " usou "+getAtaqueAguaEspecial()+"!");
+        }else{
+            System.out.println("HP insuficiente!");
+        }
+    }
+
+    public void nadar(){//recupera hp na agua
+
+        if(desmaiar(false)){
+
+            setHp(getHp() + 10);
+
+            if(getHp() > 100){ //hp maximo
+                setHp(100);
+            }
+
+            System.out.println(getNomePokemon()+" nadou e recuperou HP!");
+        }
+    }
+
+    public void entrarNaAgua(){ // vantagem na agua
+
+        setVelocidade(getVelocidade() + 5);
+
+        System.out.println(getNomePokemon()+   " ficou mais rápido na água!");
+    }
+    public void receberDano(int dano){
+
+        setHp(getHp() - dano);
+
+        if(getHp() < 0){
+            setHp(0);
+        }
+
+        System.out.println(getNomePokemon()+
+                " recebeu dano!");
+    }
+
+    @Override
+    void emitirSom() {
+        System.out.println(getNomePokemon()+"-- Psyyyduck!");
+    }
+
+    //get/set
+
+    public String getAtaqueTipoAgua() {
+        return ataqueTipoAgua;
+    }
+
+    public void setAtaqueTipoAgua(String ataqueTipoAgua) {
+        this.ataqueTipoAgua = ataqueTipoAgua;
+    }
+
+    public String getAtaqueAguaEspecial() {
+        return ataqueAguaEspecial;
+    }
+
+    public void setAtaqueAguaEspecial(String ataqueAguaEspecial) {
+        this.ataqueAguaEspecial = ataqueAguaEspecial;
+    }
+}
