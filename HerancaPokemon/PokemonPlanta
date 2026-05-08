@@ -1,0 +1,94 @@
+package Aula05.Ex05;
+
+public class PokemonPlanta extends Pokemon{
+    private String ataqueTipoPlanta;
+    private String ataquePlantaEspecial;
+
+
+    public PokemonPlanta(String nomePokemon, String tipoPokemon, int hp,
+                         int ataque, int defesa, int velocidade) {
+        super(nomePokemon, tipoPokemon, hp, ataque, defesa, velocidade);
+        this.ataqueTipoPlanta ="Solar beam";
+        this.ataquePlantaEspecial="Spore";
+
+    }
+    public void mostrarAtaques(){
+        System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⣀⣀⡀⠈⡖⡤⠄⠀\n" +
+                "⠀⠀⢀⡀⠀⠀⠀⡐⠁⠀⠀⠠⠐⠂⠀⠁⠀⠀⠀⠀\n" +
+                "⠀⠰⡁⠐⢉⣉⣭⡍⠁⠂⠉⠘⡀⠀⠀⠀⠀⠂⠡⠀\n" +
+                "⢀⣊⠀⡄⠻⠿⠋⠀⠀⠀⠀⠀⢃⠀⠀⠀⠀⠀⠀⢀\n" +
+                "⡎⣾⠀⠁⣴⡆⠀⠡⢺⣿⣆⠀⢠⢱⣄⠀⠀⠀⠀⠈\n" +
+                "⡑⠟⠀⠀⠀⠀⠀⢀⣸⡿⠟⠀⠀⠈⢿⣿⡦⡀⠀⡰\n" +
+                "⠙⠔⠦⣤⣥⣤⣤⣤⡤⠆⠀⠀⠀⠀⢀⢀⠀⠈⠎⠀\n" +
+                "⠀⠀⠈⣰⡋⢉⠉⠁⠒⠂⢇⢠⡆⠀⠸⢴⣿⠀⠘⠀\n" +
+                "⠀⠀⠘⡿⠃⠀⠨⠒⢆⣸⣿⠁⠀⡠⡇⠈⠋⠀⠰⠀\n" +
+                "⠀⠀⠀⠛⠒⠒⠁⠀⠈⠷⡤⠤⠐⠀⠘⠒⠒⠖⠁⠀" );
+
+        System.out.println("Ataque: "+getAtaqueTipoPlanta());
+        System.out.println("Ataque especial: "+getAtaquePlantaEspecial());
+
+    }
+
+    public void ataquePlanta(){
+        if(estaVivo()){//pokemon só consegue atacar se não estiver desmaiado
+            setHp(getHp() - 10);//perde hp ao atacar
+            System.out.println(getNomePokemon()+" usou "+getAtaqueTipoPlanta()+" swishh swishh");
+        }
+    }
+
+    public void fazerFotossintese(){
+
+        if(estaVivo()){
+
+            setHp(getHp() + 15);
+
+            if(getHp() > 100){
+                setHp(100);
+            }
+
+            System.out.println(getNomePokemon()+
+                    " absorveu luz solar!");
+        }
+    }
+    public void soltarEsporos(){
+
+        if(estaVivo()){
+
+            System.out.println(getNomePokemon()+
+                    " espalhou esporos pelo ambiente!");
+        }
+    }
+
+    public void crescer(){
+
+        setHp(getHp() + 5);
+        setAtaque(getAtaque() + 3);
+        setDefesa(getDefesa() + 3);
+
+        System.out.println(getNomePokemon()+
+                " cresceu saudável!");
+    }
+
+    @Override
+    void emitirSom() {
+        System.out.println(getNomePokemon()+"-- Bulbasaur!");
+    }
+
+    //get/set
+
+    public String getAtaqueTipoPlanta() {
+        return ataqueTipoPlanta;
+    }
+
+    public void setAtaqueTipoPlanta(String ataqueTipoPlanta) {
+        this.ataqueTipoPlanta = ataqueTipoPlanta;
+    }
+
+    public String getAtaquePlantaEspecial() {
+        return ataquePlantaEspecial;
+    }
+
+    public void setAtaquePlantaEspecial(String ataquePlantaEspecial) {
+        this.ataquePlantaEspecial = ataquePlantaEspecial;
+    }
+}
