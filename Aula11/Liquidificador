@@ -1,0 +1,35 @@
+package Aula11.Ex01;
+
+public class Liquidificador {
+    private Produto produto;
+    private Especificacao especificacao;
+
+    // atributo próprio
+    private Integer quantidadeVelocidades;
+
+    public Liquidificador(Produto produto,
+                          Especificacao especificacao,
+                          Integer quantidadeVelocidades) {
+
+        this.produto = produto;
+        this.especificacao = especificacao;
+        this.quantidadeVelocidades = quantidadeVelocidades;
+    }
+
+    public void mostrarDados() {
+
+        System.out.println("===== LIQUIDIFICADOR =====");
+
+        System.out.println("Produto: " + produto.getNomeProduto());
+        System.out.println("Valor: R$ " + produto.getValorProduto());
+        System.out.println("Código: " + produto.getCodigoProduto());
+
+        System.out.println("Marca: " + especificacao.getNomeMarca());
+        System.out.println("Modelo: " + especificacao.getModelo());
+        System.out.println("Potência: " + especificacao.getPotencia() + "W");
+        System.out.println("Descrição: " + especificacao.getDescricao());
+
+        System.out.println("Quantidade de velocidades: "
+                + quantidadeVelocidades);
+    }
+}
