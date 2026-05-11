@@ -1,0 +1,67 @@
+package Aula11.Ex01;
+
+public class main {
+    public static void main(String[] args) {
+        Produto produtoMicro =
+                new Produto("Microondas", 800.0, 202);
+
+        Especificacao espMicro =
+                new Especificacao(
+                        "Electrolux",
+                        "MEF41",
+                        1200,
+                        "Microondas 30L"
+                );
+
+        Microondas microondas =
+                new Microondas(produtoMicro,
+                        espMicro,
+                        true);
+
+        microondas.mostrarDados();
+
+
+        System.out.println("\n====================\n");
+
+
+        Produto produtoVent =
+                new Produto("Ventilador", 250.0, 303);
+
+        Especificacao espVent =
+                new Especificacao(
+                        "Arno",
+                        "Turbo",
+                        140,
+                        "Ventilador silencioso"
+                );
+
+        Ventilador ventilador =
+                new Ventilador(produtoVent,
+                        espVent,
+                        3);
+
+        ventilador.mostrarDados();
+
+        Produto produtoLiquidificador =
+                new Produto("Liquidificador Turbo", 299.90, 404);
+
+        Especificacao espLiquidificador =
+                new Especificacao(
+                        "Philips Walita",
+                        "Turbo Mix",
+                        900,
+                        "Liquidificador com copo de 3 litros"
+                );
+
+        Liquidificador liquidificador =
+                new Liquidificador(
+                        produtoLiquidificador,
+                        espLiquidificador,
+                        12
+                );
+
+        liquidificador.mostrarDados();
+
+
+}
+}
