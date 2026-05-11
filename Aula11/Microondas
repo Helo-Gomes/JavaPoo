@@ -1,0 +1,28 @@
+package Aula11.Ex01;
+
+public class Microondas {
+
+        private Produto produto;
+        private Especificacao especificacao;
+
+        private Boolean possuiGrill;
+
+        public Microondas(Produto produto,
+                          Especificacao especificacao,
+                          Boolean possuiGrill) {
+
+            this.produto = produto;
+            this.especificacao = especificacao;
+            this.possuiGrill = possuiGrill;
+        }
+
+        public void mostrarDados() {
+
+            System.out.println("===== MICROONDAS =====");
+
+            System.out.println("Produto: " + produto.getNomeProduto());
+            System.out.println("Marca: " + especificacao.getNomeMarca());
+
+            System.out.println("Possui grill: " + possuiGrill);
+        }
+}
