@@ -1,0 +1,133 @@
+package Aula10.Ex01;
+
+import java.util.ArrayList;
+
+public class ReprodutorAudio implements ReprodutorMidia{
+
+    private String nomeAlbum;
+    private Integer anoAlbum;
+    private String generoMusica;
+    private String nomeMusica;
+    private Double duracaoMusica;
+    private Boolean pausado;
+    private ArrayList<String> playlist = new ArrayList<>();
+
+    public ReprodutorAudio(String nomeAlbum, Integer anoAlbum, String generoMusica, String nomeMusica, Double duracaoMusica) {
+        this.nomeAlbum = nomeAlbum;
+        this.anoAlbum = anoAlbum;
+        this.generoMusica = generoMusica;
+        this.nomeMusica = nomeMusica;
+        this.duracaoMusica = duracaoMusica;
+        this.pausado = false;
+    }
+
+
+//metodos publicos
+
+
+
+    public void adicionarNaPlaylist(String musica){ //adicionar musica na playlist
+        //adicionar em uma lista
+        playlist.add(musica);
+        System.out.println("Música adicionada na playlist: " + musica);
+
+    }
+
+    public void mostrarPlaylist(){
+        //pesquisar musica e mostrar os atributos formatados
+        System.out.println("::::::::::: PLAYLIST :::::::::::");
+
+        if (playlist.isEmpty()) {
+
+            System.out.println("A playlist está vazia.");
+
+        } else {
+
+            for (String musica : playlist) {
+
+                System.out.println(musica);
+            }
+        }
+    }
+
+    //get/set
+
+    public String getNomeAlbum() {
+        return nomeAlbum;
+    }
+
+    public void setNomeAlbum(String nomeAlbum) {
+        this.nomeAlbum = nomeAlbum;
+    }
+
+    public Integer getAnoAlbum() {
+        return anoAlbum;
+    }
+
+    public void setAnoAlbum(Integer anoAlbum) {
+        this.anoAlbum = anoAlbum;
+    }
+
+    public String getGeneroMusica() {
+        return generoMusica;
+    }
+
+    public void setGeneroMusica(String generoMusica) {
+        this.generoMusica = generoMusica;
+    }
+
+    public String getNomeMusica() {
+        return nomeMusica;
+    }
+
+    public void setNomeMusica(String nomeMusica) {
+        this.nomeMusica = nomeMusica;
+    }
+
+    public Double getDuracaoMusica() {
+        return duracaoMusica;
+    }
+
+
+
+    //implementar interface
+    @Override
+    public void reproduzirMidia() {
+        if(pausado){
+            pausado = false;
+            System.out.println(":::::::::::-- SPOTIFY --::::::::::");
+            System.out.println("Tocando agora :"+this.getNomeMusica());
+            System.out.println("Albúm: "+this.getNomeAlbum());
+            System.out.println("Ano: "+this.getAnoAlbum());
+            System.out.println("Genero: "+this.getGeneroMusica());
+            System.out.println("                ||               ");
+
+            System.out.println("•၊၊||၊|။||||။၊|၊၊||၊|။||||။၊|၊၊||၊|။||||။၊|•"+this.getDuracaoMusica());
+        }else {
+            System.out.println("Já esta reproduzindo.");
+        }
+
+    }
+
+    @Override
+    public void pausarMidia() {
+        if(!pausado){
+            pausado = true;
+            System.out.println(":::::::::::-- SPOTIFY --::::::::::");
+            System.out.println("Pausado :"+this.getNomeMusica());
+            System.out.println("Albúm: "+this.getNomeAlbum());
+            System.out.println("Ano: "+this.getAnoAlbum());
+            System.out.println("Genero: "+this.getGeneroMusica());
+            System.out.println("                ▶                ");
+            System.out.println("_____________________________"+this.getDuracaoMusica());
+        }else {
+            System.out.println("Já esta pausado.");
+        }
+
+    }
+
+    @Override
+    public void pararMidia() {
+        System.out.println("Saindo do APP...");
+    }
+}
