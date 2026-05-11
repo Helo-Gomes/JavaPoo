@@ -21,9 +21,6 @@ public class main {
         microondas.mostrarDados();
 
 
-        System.out.println("\n====================\n");
-
-
         Produto produtoVent =
                 new Produto("Ventilador", 250.0, 303);
 
