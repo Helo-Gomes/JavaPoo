@@ -1,0 +1,27 @@
+package Aula11.Ex01;
+
+public class Ventilador {
+    private Produto produto;
+    private Especificacao especificacao;
+
+    private Integer velocidades;
+
+    public Ventilador(Produto produto,
+                      Especificacao especificacao,
+                      Integer velocidades) {
+
+        this.produto = produto;
+        this.especificacao = especificacao;
+        this.velocidades = velocidades;
+    }
+
+    public void mostrarDados() {
+
+        System.out.println("===== VENTILADOR =====");
+
+        System.out.println("Produto: " + produto.getNomeProduto());
+        System.out.println("Marca: " + especificacao.getNomeMarca());
+
+        System.out.println("Velocidades: " + velocidades);
+    }
+}
