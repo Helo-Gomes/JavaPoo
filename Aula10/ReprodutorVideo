@@ -1,0 +1,128 @@
+package Aula10.Ex01;
+
+import java.util.ArrayList;
+
+public class ReprodutorVideo implements ReprodutorMidia{
+
+    private String nomeVideo;
+    private String dataVideo;
+    private Double duracaVideo;
+    private String formatoVideo; //horizontal longo, vertical curto etc
+    private Boolean pausado = true;
+
+    // lista de vídeos do canal
+    private ArrayList<String> canalVideos = new ArrayList<>();
+
+    public ReprodutorVideo(String nomeVideo, String dataVideo, Double duracaVideo, String formatoVideo) {
+        this.nomeVideo = nomeVideo;
+        this.dataVideo = dataVideo;
+        this.duracaVideo = duracaVideo;
+        this.formatoVideo = formatoVideo;
+    }
+
+    //metodos publicos
+    public void adicionarVideo(String video) {
+
+        canalVideos.add(video);
+
+        System.out.println("Vídeo adicionado ao canal: " + video);
+    }
+
+    public void mostrarCanal() {
+
+        System.out.println("::::::::::: CANAL :::::::::::");
+
+        if (canalVideos.isEmpty()) {
+
+            System.out.println("Nenhum vídeo no canal.");
+
+        } else {
+
+            int contador = 1;
+
+            for (String video : canalVideos) {
+
+                System.out.println(contador + " - " + video);
+
+                contador++;
+            }
+        }
+    }
+
+
+    public String getNomeVideo() {
+        return nomeVideo;
+    }
+
+    public void setNomeVideo(String nomeVideo) {
+        this.nomeVideo = nomeVideo;
+    }
+
+    public String getDataVideo() {
+        return dataVideo;
+    }
+
+    public void setDataVideo(String dataVideo) {
+        this.dataVideo = dataVideo;
+    }
+
+    public Double getDuracaVideo() {
+        return duracaVideo;
+    }
+
+    public void setDuracaVideo(Double duracaVideo) {
+        this.duracaVideo = duracaVideo;
+    }
+
+    public String getFormatoVideo() {
+        return formatoVideo;
+    }
+
+    public void setFormatoVideo(String formatoVideo) {
+        this.formatoVideo = formatoVideo;
+    }
+
+    //implementar interface
+
+    @Override
+    public void reproduzirMidia() {
+        if (pausado) {
+
+            pausado = false;
+
+            System.out.println("::::::::::: YOUTUBE :::::::::::");
+            System.out.println("Reproduzindo: " + this.getNomeVideo());
+            System.out.println("Data: " + this.getDataVideo());
+            System.out.println("Formato: " + this.getFormatoVideo());
+            System.out.println("Duração: " + this.getDuracaVideo() + " min");
+            System.out.println("                ▶                ");
+
+        } else {
+
+            System.out.println("O vídeo já está reproduzindo.");
+        }
+    }
+
+    @Override
+    public void pausarMidia() {
+        if (!pausado) {
+
+            pausado = true;
+
+            System.out.println("::::::::::: YOUTUBE :::::::::::");
+            System.out.println("Vídeo pausado: " + nomeVideo);
+            System.out.println("                ||                ");
+
+        } else {
+
+            System.out.println("O vídeo já está pausado.");
+        }
+    }
+
+    @Override
+    public void pararMidia() {
+        pausado = true;
+
+        System.out.println("Fechando vídeo...");
+    }
+}
