@@ -1,0 +1,64 @@
+package Aula10.Ex01;
+
+public class Main {
+    public static void main(String[] args) {
+
+        //Spotify
+        ReprodutorAudio audio = new ReprodutorAudio(
+                "After Hours",
+                2020,
+                "Pop",
+                "Blinding Lights",
+                3.20
+
+        );
+
+        audio.adicionarNaPlaylist("Blinding Lights");
+        audio.adicionarNaPlaylist("Starboy");
+        audio.adicionarNaPlaylist("Save Your Tears");
+
+        System.out.println();
+
+        audio.mostrarPlaylist();
+
+        System.out.println();
+
+        audio.reproduzirMidia();
+
+        System.out.println();
+
+        audio.pausarMidia();
+
+        System.out.println();
+
+        audio.pararMidia();
+
+        //Youtube
+        ReprodutorVideo video = new ReprodutorVideo(
+                "POO em Java",
+                "10/05/2026",
+                15.30,
+                "Horizontal Longo"
+        );
+
+        video.adicionarVideo("POO em Java");
+        video.adicionarVideo("Interfaces em Java");
+        video.adicionarVideo("ArrayList na prática");
+
+        System.out.println();
+
+        video.mostrarCanal();
+
+        System.out.println();
+
+        video.reproduzirMidia();
+
+        System.out.println();
+
+        video.pausarMidia();
+
+        System.out.println();
+
+        video.pararMidia();
+    }
+}
