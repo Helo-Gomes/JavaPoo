@@ -1,0 +1,38 @@
+package Aula11.Ex01;
+
+public class Produto {
+
+    private String nomeProduto;
+    private Double valorProduto;
+    private Integer codigoProduto;
+
+    public Produto(String nomeProduto, Double valorProduto, Integer codigoProduto) {
+        this.nomeProduto = nomeProduto;
+        this.valorProduto = valorProduto;
+        this.codigoProduto = codigoProduto;
+    }
+
+    public String getNomeProduto() {
+        return nomeProduto;
+    }
+
+    public void setNomeProduto(String nomeProduto) {
+        this.nomeProduto = nomeProduto;
+    }
+
+    public Double getValorProduto() {
+        return valorProduto;
+    }
+
+    public void setValorProduto(Double valorProduto) {
+        this.valorProduto = valorProduto;
+    }
+
+    public Integer getCodigoProduto() {
+        return codigoProduto;
+    }
+
+    public void setCodigoProduto(Integer codigoProduto) {
+        this.codigoProduto = codigoProduto;
+    }
+}
