@@ -1,0 +1,9 @@
+package Aula10.Ex01;
+
+public interface ReprodutorMidia {
+
+    void reproduzirMidia();
+    void pausarMidia();
+    void pararMidia();
+
+}
