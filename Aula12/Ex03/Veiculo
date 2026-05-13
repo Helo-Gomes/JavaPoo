@@ -1,0 +1,45 @@
+package Aula12.Ex03;
+
+public class Veiculo {
+    private String modelo;
+    private Integer anoFabricacao;
+    private TipoVeiculo tipoVeiculo;
+
+    public Veiculo(String modelo, Integer anoFabricacao, TipoVeiculo tipoVeiculo) {
+        this.modelo = modelo;
+        this.anoFabricacao = anoFabricacao;
+        this.tipoVeiculo = tipoVeiculo;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public Integer getAnoFabricacao() {
+        return anoFabricacao;
+    }
+
+    public void setAnoFabricacao(Integer anoFabricacao) {
+        this.anoFabricacao = anoFabricacao;
+    }
+
+    public TipoVeiculo getTipoVeiculo() {
+        return tipoVeiculo;
+    }
+
+    public void setTipoVeiculo(TipoVeiculo tipoVeiculo) {
+        this.tipoVeiculo = tipoVeiculo;
+    }
+
+    @Override
+    public String toString() {
+        return "------------ Veículo -------------" +
+                "\nModelo:" + modelo +
+                "\n Ano fabricacao:" + anoFabricacao +
+                "\n Tipo veículo:" + tipoVeiculo.getDescVeiculo();
+    }
+}
