@@ -1,0 +1,12 @@
+package Aula12.Ex02;
+
+
+public class Main {
+    public static void main(String[] args) {
+        Documento doc = new Documento("112.233.445-55");
+        doc.setTipoDocumento(TipoDocumento.RG);
+
+        System.out.println(doc);
+    }
+
+}
