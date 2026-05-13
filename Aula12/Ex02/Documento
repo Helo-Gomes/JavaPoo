@@ -1,0 +1,32 @@
+package Aula12.Ex02;
+
+public class Documento {
+    private String numeroDoDocumento;
+    private TipoDocumento tipoDocumento;
+
+    public Documento(String numeroDoDocumento) {
+        this.numeroDoDocumento = numeroDoDocumento;
+    }
+
+    public String getNumeroDoDocumento() {
+        return numeroDoDocumento;
+    }
+
+    public void setNumeroDoDocumento(String numeroDoDocumento) {
+        this.numeroDoDocumento = numeroDoDocumento;
+    }
+    public TipoDocumento getTipoDocumento() {
+        return tipoDocumento;
+    }
+
+    public void setTipoDocumento(TipoDocumento tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
+    }
+
+    @Override
+    public String toString() {
+        return "Documento: " +
+                "\nNumero do documento: " + numeroDoDocumento +
+                "\nTipo do documento: " + tipoDocumento.getDescDocumento() ;
+    }
+}
