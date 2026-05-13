@@ -1,0 +1,45 @@
+package Aula12.Ex04;
+
+public class Aluno {
+    private String nomeAluno;
+    private Integer idadeAluno;
+    private GrauEscolaridade escolaridade;
+
+    public Aluno(String nomeAluno, Integer idadeAluno, GrauEscolaridade escolaridade) {
+        this.nomeAluno = nomeAluno;
+        this.idadeAluno = idadeAluno;
+        this.escolaridade = escolaridade;
+    }
+
+    public String getNomeAluno() {
+        return nomeAluno;
+    }
+
+    public void setNomeAluno(String nomeAluno) {
+        this.nomeAluno = nomeAluno;
+    }
+
+    public Integer getIdadeAluno() {
+        return idadeAluno;
+    }
+
+    public void setIdadeAluno(Integer idadeAluno) {
+        this.idadeAluno = idadeAluno;
+    }
+
+    public GrauEscolaridade getEscolaridade() {
+        return escolaridade;
+    }
+
+    public void setEscolaridade(GrauEscolaridade escolaridade) {
+        this.escolaridade = escolaridade;
+    }
+
+    @Override
+    public String toString() {
+        return "Aluno:" +
+                "nome aluno: " + nomeAluno +
+                "idade aluno: " + idadeAluno +
+                "escolaridade: " + escolaridade.getDescEscolaridade();
+    }
+}
