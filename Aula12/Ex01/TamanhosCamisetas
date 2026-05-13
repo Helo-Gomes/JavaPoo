@@ -1,0 +1,20 @@
+package Aula12.Ex01;
+
+public enum TamanhosCamiseta {
+
+    P("Tamanho Pequeno"),
+    M("Tamanho Medio"),
+    G("Tamanho Grande"),
+    GG("Tamanho Grande Maior"),
+    XG("Tamanho Extra Grande");
+
+    private final String descricaoTamanho;
+
+    TamanhosCamiseta(String descricaoTamanho) {
+        this.descricaoTamanho = descricaoTamanho;
+    }
+
+    public String getDescricaoTamanho() {
+        return descricaoTamanho;
+    }
+}
