@@ -1,0 +1,74 @@
+package Aula13;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+public class Checkin {
+    private static final DateTimeFormatter FORMATO = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+    private String nomeCliente;
+    private Integer docIdentificacao;
+    private LocalDate dataNascimento;
+    private String telefone;
+    private LocalDate dataEntrada;
+    private LocalDate dataSaida;
+
+    public Checkin(String nomeCliente, Integer docIdentificacao,
+                   String dataNascimento, String telefone,
+                   String dataEntrada, String dataSaida) {
+        this.nomeCliente = nomeCliente;
+        this.docIdentificacao = docIdentificacao;
+        this.dataNascimento = LocalDate.parse(dataNascimento, FORMATO); // String → LocalDate
+        this.telefone = telefone;
+        this.dataEntrada = LocalDate.parse(dataEntrada, FORMATO);       // String → LocalDate
+        this.dataSaida = LocalDate.parse(dataSaida, FORMATO);           // String → LocalDate
+    }
+
+    public String getNomeCliente() {
+        return nomeCliente;
+    }
+
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
+    }
+
+    public Integer getDocIdentificacao() {
+        return docIdentificacao;
+    }
+
+    public void setDocIdentificacao(Integer docIdentificacao) {
+        this.docIdentificacao = docIdentificacao;
+    }
+
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public LocalDate getDataEntrada() {
+        return dataEntrada;
+    }
+
+    public void setDataEntrada(LocalDate dataEntrada) {
+        this.dataEntrada = dataEntrada;
+    }
+
+    public LocalDate getDataSaida() {
+        return dataSaida;
+    }
+
+    public void setDataSaida(LocalDate dataSaida) {
+        this.dataSaida = dataSaida;
+    }
+}
