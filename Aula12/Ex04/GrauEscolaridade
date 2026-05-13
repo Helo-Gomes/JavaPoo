@@ -1,0 +1,20 @@
+package Aula12.Ex04;
+
+public enum GrauEscolaridade {
+    FUNDAMENTAL("Ensino fundamental completo"),
+    FUNDAMENTA_INCOMPLETO("Ensino fundamental incompleto"),
+    MEDIO("Ensiono médio completo"),
+    MEDIO_INCOMPLETO("Ensino médio incompleto"),
+    SUPERIOR("Ensiono superior completo"),
+    POS_GRADUACAO("Pós graduação completa");
+
+    private final String descEscolaridade;
+
+    GrauEscolaridade(String descEscolaridade) {
+        this.descEscolaridade = descEscolaridade;
+    }
+
+    public String getDescEscolaridade() {
+        return descEscolaridade;
+    }
+}
