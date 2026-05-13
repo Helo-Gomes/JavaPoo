@@ -1,0 +1,19 @@
+package Aula12.Ex03;
+
+public enum TipoVeiculo {
+    CARRO("Carro"),
+    BICICLETA("Bicicleta"),
+    MOTO("Moto"),
+    CAMINHAO("Caminhão"),
+    ONIBUS("Ônibus");
+
+    private final String descVeiculo;
+
+    TipoVeiculo(String descVeiculo) {
+        this.descVeiculo = descVeiculo;
+    }
+
+    public String getDescVeiculo() {
+        return descVeiculo;
+    }
+}
