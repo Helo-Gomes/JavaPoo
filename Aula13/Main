@@ -1,0 +1,42 @@
+package Aula13;
+
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+public class Main {
+    public static void main(String[] args) {
+        Checkin cliente1 = new Checkin("Heloisa Gomes",11111111,
+                "18/09/2003","1190000-0000",
+                "20/05/2026","25/05/2026");
+
+        validarReserva(cliente1);
+
+    }
+
+    static void validarReserva(Checkin c) {
+        LocalDate hoje = LocalDate.now();
+        LocalDate entrada = c.getDataEntrada();
+        LocalDate saida = c.getDataSaida();
+
+        // verificar se entrada é posterior à data atual
+        if (!entrada.isAfter(hoje)) {
+            System.out.println("Data de entrada deve ser posterior a data atual.");
+            return;
+        }
+
+        // verificar saída deve ser posterior à entrada
+        if (!saida.isAfter(entrada)) {
+            System.out.println("Data de saída deve ser após a data de entrada.");
+            return;
+        }
+
+        // maximo de 10 dias
+        long dias = ChronoUnit.DAYS.between(entrada, saida); //quatidade de dias
+        if (dias > 10) {
+            System.out.println("Ajuste a data de estadia dentro do limite de no máximo 10 dias.");
+            return;
+        }
+
+        System.out.println("Reserva válida! Duração: " + dias + " dias.");
+    }
+}
