@@ -1,0 +1,40 @@
+package Aula14.Ex01;
+
+public abstract class CorpoCeleste {
+
+    private String nome;
+    private Double massa;
+    private Double distanciaDaTerra;
+
+    public CorpoCeleste(String nome, Double massa, Double distanciaDaTerra) {
+        this.nome = nome;
+        this.massa = massa;
+        this.distanciaDaTerra = distanciaDaTerra;
+    }
+
+    abstract public void exibirInformacoes();//metodo abstrato a ser definido
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Double getMassa() {
+        return massa;
+    }
+
+    public void setMassa(Double massa) {
+        this.massa = massa;
+    }
+
+    public Double getDistanciaDaTerra() {
+        return distanciaDaTerra;
+    }
+
+    public void setDistanciaDaTerra(Double distanciaDaTerra) {
+        this.distanciaDaTerra = distanciaDaTerra;
+    }
+}
