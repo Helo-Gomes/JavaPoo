@@ -1,0 +1,13 @@
+package Aula14.Ex01;
+
+public class Estrela extends CorpoCeleste{
+
+    public Estrela(String nome, Double massa, Double distanciaDaTerra) {
+        super(nome, massa, distanciaDaTerra);
+    }
+
+    @Override
+    public void exibirInformacoes() {
+        System.out.println("A estrela "+ getNome()+" tem massa "+getMassa()+"x10^29 Kg e está a "+getDistanciaDaTerra()+"anos-luz de distancia da Terra.");
+    }
+}
