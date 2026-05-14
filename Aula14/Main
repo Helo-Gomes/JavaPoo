@@ -1,0 +1,12 @@
+package Aula14.Ex01;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Planeta venus = new Planeta("Vênus",4.869,41.5);
+        venus.exibirInformacoes();
+
+        Estrela alphaC = new Estrela("Alpha Centauri",2.4,4.24);
+        alphaC.exibirInformacoes();
+    }
+}
