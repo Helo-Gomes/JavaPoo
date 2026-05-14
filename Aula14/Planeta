@@ -1,0 +1,15 @@
+package Aula14.Ex01;
+
+public class Planeta extends CorpoCeleste{
+
+
+    public Planeta(String nome, Double massa, Double distanciaDaTerra) {
+        super(nome, massa, distanciaDaTerra);
+    }
+
+    @Override
+    public void exibirInformacoes() {
+
+        System.out.println("O planeta "+  getNome()+" tem massa "+getMassa()+"x10^24 Kg e está a "+getDistanciaDaTerra()+" milhões de km de distancia da Terra.");
+    }
+}
