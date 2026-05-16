@@ -1,0 +1,9 @@
+package Aula19.Ex02;
+
+public enum TipoCarro {
+    SEDAN,
+    HATCH,
+    SUV,
+    PICAPE,
+    COUPE
+}
