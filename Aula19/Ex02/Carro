@@ -1,0 +1,13 @@
+package Aula19.Ex02;
+
+public class Carro extends Veiculo {
+    private TipoCarro tipoCarro;
+
+    public Carro(String marcaVeiculo, String modeloVeiculo, Integer anoVeiculo, TipoCarro tipoCarro) {
+        super(marcaVeiculo, modeloVeiculo, anoVeiculo);
+        this.tipoCarro = tipoCarro; // ✅ estava faltando
+    }
+
+    public TipoCarro getTipoCarro() { return tipoCarro; }
+    public void setTipoCarro(TipoCarro tipoCarro) { this.tipoCarro = tipoCarro; }
+}
