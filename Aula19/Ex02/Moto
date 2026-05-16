@@ -1,0 +1,13 @@
+package Aula19.Ex02;
+
+public class Moto extends Veiculo {
+    private Integer cilindrada;
+
+    public Moto(String marcaVeiculo, String modeloVeiculo, Integer anoVeiculo, Integer cilindrada) {
+        super(marcaVeiculo, modeloVeiculo, anoVeiculo);
+        this.cilindrada = cilindrada;
+    }
+
+    public Integer getCilindrada() { return cilindrada; }
+    public void setCilindrada(Integer cilindrada) { this.cilindrada = cilindrada; }
+}
