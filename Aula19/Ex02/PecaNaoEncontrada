@@ -1,0 +1,8 @@
+package Aula19.Ex02;
+
+public class PecaNaoEncontrada extends Exception {
+    public PecaNaoEncontrada(String message) {
+        super(message);
+
+    }
+}
