@@ -1,0 +1,49 @@
+package Aula19.Ex02;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Veiculo {
+    private String marcaVeiculo;
+    private String modeloVeiculo;
+    private Integer anoVeiculo;
+    List<Peca> listaPecas = new ArrayList<>();
+
+    public Veiculo(String marcaVeiculo, String modeloVeiculo, Integer anoVeiculo) {
+        this.marcaVeiculo = marcaVeiculo;
+        this.modeloVeiculo = modeloVeiculo;
+        this.anoVeiculo = anoVeiculo;
+    }
+
+    public String getMarcaVeiculo() { return marcaVeiculo; }
+    public void setMarcaVeiculo(String marcaVeiculo) { this.marcaVeiculo = marcaVeiculo; }
+    public String getModeloVeiculo() { return modeloVeiculo; }
+    public void setModeloVeiculo(String modeloVeiculo) { this.modeloVeiculo = modeloVeiculo; }
+    public Integer getAnoVeiculo() { return anoVeiculo; }
+    public void setAnoVeiculo(Integer anoVeiculo) { this.anoVeiculo = anoVeiculo; }
+
+    public void adicionarPecas(String nomePeca, Double precoPeca) {
+        listaPecas.add(new Peca(nomePeca, precoPeca));
+    }
+
+    public void removerPecas(String nomePeca) throws PecaNaoEncontrada {
+        for (Peca peca : listaPecas) {
+            if (peca.getNomePeca().equals(nomePeca)) {
+                listaPecas.remove(peca);
+                return;
+            }
+        }
+        throw new PecaNaoEncontrada("Peça " + nomePeca + " não encontrada!"); // ✅ só lança se não achou
+    }
+
+    public void listarPecas() {
+        if (listaPecas.isEmpty()) {
+            System.out.println("Nenhuma peça cadastrada.");
+            return;
+        }
+        System.out.println("Peças adicionadas no veículo:");
+        for (Peca peca : listaPecas) {
+            System.out.println(peca);
+        }
+    }
+}
