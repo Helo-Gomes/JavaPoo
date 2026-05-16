@@ -1,0 +1,27 @@
+package Aula19.Ex02;
+
+public class Peca {
+    private String nomePeca;
+    private Double precoPeca;
+
+    public Peca(String nomePeca, Double precoPeca) {
+        this.nomePeca = nomePeca;
+        this.precoPeca = precoPeca;
+    }
+
+    public String getNomePeca() {
+        return nomePeca;
+    }
+
+    public void setNomePeca(String nomePeca) {
+        this.nomePeca = nomePeca;
+    }
+
+    public Double getPrecoPeca() {
+        return precoPeca;
+    }
+
+    public void setPrecoPeca(Double precoPeca) {
+        this.precoPeca = precoPeca;
+    }
+}
