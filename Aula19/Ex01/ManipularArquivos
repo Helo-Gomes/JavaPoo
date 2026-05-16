@@ -1,0 +1,46 @@
+package Aula19.Ex01;
+
+import java.io.*;
+import java.util.Scanner;
+
+public class ManipularArquivos {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String caminhoDoArquivo ="C:\\Users\\anahe\\IdeaProjects\\JavaPooBradesco\\src\\test.txt";
+
+        try( BufferedReader reader = new BufferedReader(new FileReader(caminhoDoArquivo))){
+            String linha = reader.readLine();
+            while (linha != null){
+                System.out.println(linha);
+                linha = reader.readLine();
+
+                //solicitar nova linha
+                System.out.println("Adicione uma nova linha de texto: ");
+                String novaLinha = scanner.nextLine();
+
+                //try catch do metAodo escrever
+                // true depois do caminhoDoArquivo para adicionar nova linha ao inves de sobreescrever
+                try(FileWriter escrever = new FileWriter(caminhoDoArquivo, true)){
+                    escrever.write("\n"+novaLinha);
+                    System.out.println("Nova linha adicionada com sucesso!");
+                }catch (FileNotFoundException e){
+                    System.out.println("Não foi possivel encontrar o arquivo, para a nova escrita.");
+                }catch (IOException e){
+                    System.out.println("Não foi possivrl gravar o arquivo");
+                }
+
+
+            }
+        }catch(FileNotFoundException e){
+            System.out.println("Não foi possivel encontrar o arquivo.");
+        }
+        catch(IOException e){
+            System.out.println("Erro "+e.getMessage());
+        }
+
+
+
+        scanner.close();
+    }
+}
