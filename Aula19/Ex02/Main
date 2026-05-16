@@ -1,0 +1,224 @@
+package Aula19.Ex02;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+    static List<Carro> listaCarros = new ArrayList<>();
+    static List<Moto> listaMotos = new ArrayList<>();
+    static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+
+        System.out.println("===---- Menu Mecanica ---===");
+        System.out.println("1. Manutenção de carro");
+        System.out.println("2. Manutenção de moto");
+        int menuPrincipal = Integer.parseInt(scanner.nextLine());
+
+        switch (menuPrincipal) {
+            case 1:
+                int menuCarro;
+                do {
+                    System.out.println("==------ Menu Carro ------==");
+                    System.out.println("0. Adicionar Carro.");
+                    System.out.println("1. Adicionar uma peça");
+                    System.out.println("2. Remover uma peça");
+                    System.out.println("3. Listar peças no veículo.");
+                    System.out.println("4. Sair do sistema.");
+                    menuCarro = Integer.parseInt(scanner.nextLine());
+                    switch (menuCarro) {
+                        case 0: adicionarCarro(); break;
+                        case 1: adicionarPecaCarro(); break;
+                        case 2: removerPecaCarro(); break;
+                        case 3: listarPecasCarro(); break;
+                        case 4: System.out.println("Saindo..."); break;
+                        default: System.out.println("Opção inválida.");
+                    }
+                } while (menuCarro != 4);
+                break;
+
+            case 2:
+                int menuMoto;
+                do {
+                    System.out.println("==------ Menu Moto ------==");
+                    System.out.println("0. Adicionar Moto.");
+                    System.out.println("1. Adicionar uma peça");
+                    System.out.println("2. Remover uma peça");
+                    System.out.println("3. Listar peças no veículo.");
+                    System.out.println("4. Sair do sistema.");
+                    menuMoto = Integer.parseInt(scanner.nextLine());
+                    switch (menuMoto) {
+                        case 0: adicionarMoto(); break;
+                        case 1: adicionarPecaMoto(); break;
+                        case 2: removerPecaMoto(); break;
+                        case 3: listarPecasMoto(); break;
+                        case 4: System.out.println("Saindo..."); break;
+                        default: System.out.println("Opção inválida.");
+                    }
+                } while (menuMoto != 4);
+                break;
+
+            default:
+                System.out.println("Opção inválida.");
+        }
+
+        scanner.close();
+    }
+
+    // ===================== MÉTODOS CARRO =====================
+
+    static void adicionarCarro() {
+        try {
+            System.out.println("Digite a marca do carro:");
+            String marcaCarro = scanner.nextLine();
+            System.out.println("Digite o modelo do carro:");
+            String modeloCarro = scanner.nextLine();
+            System.out.println("Digite o ano do carro:");
+            Integer anoCarro = Integer.parseInt(scanner.nextLine());
+            System.out.println("Tipo do carro (SEDAN, SUV, HATCH...):");
+            TipoCarro tipo = TipoCarro.valueOf(scanner.nextLine().toUpperCase());
+
+            listaCarros.add(new Carro(marcaCarro, modeloCarro, anoCarro, tipo));
+            System.out.println("Carro adicionado!");
+
+        } catch (NumberFormatException e) {
+            System.out.println("Erro: Digite um ano válido.");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Erro: Digite um tipo de carro válido.");
+        }
+    }
+
+    static void adicionarPecaCarro() {
+        if (listaCarros.isEmpty()) {
+            System.out.println("Nenhum carro cadastrado!");
+            return;
+        }
+        System.out.println("Escolha o carro:");
+        for (int i = 0; i < listaCarros.size(); i++) {
+            System.out.println(i + " - " + listaCarros.get(i).getMarcaVeiculo() + " " + listaCarros.get(i).getModeloVeiculo());
+        }
+        int indice = Integer.parseInt(scanner.nextLine());
+        Carro carroEscolhido = listaCarros.get(indice);
+
+        System.out.println("Digite o nome da peça:");
+        String nomePeca = scanner.nextLine();
+        System.out.println("Digite o valor da peça:");
+        Double valorPeca = Double.parseDouble(scanner.nextLine());
+
+        carroEscolhido.adicionarPecas(nomePeca, valorPeca);
+        System.out.println("Peça adicionada ao carro " + carroEscolhido.getMarcaVeiculo() + "!");
+    }
+
+    static void removerPecaCarro() {
+        if (listaCarros.isEmpty()) {
+            System.out.println("Nenhum carro cadastrado!");
+            return;
+        }
+        System.out.println("Escolha o carro:");
+        for (int i = 0; i < listaCarros.size(); i++) {
+            System.out.println(i + " - " + listaCarros.get(i).getMarcaVeiculo() + " " + listaCarros.get(i).getModeloVeiculo());
+        }
+        int indice = Integer.parseInt(scanner.nextLine());
+        Carro carroEscolhido = listaCarros.get(indice);
+
+        try {
+            System.out.println("Digite o nome da peça:");
+            String nomePeca = scanner.nextLine();
+            carroEscolhido.removerPecas(nomePeca);
+            System.out.println("Peça removida!");
+        } catch (PecaNaoEncontrada e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    static void listarPecasCarro() {
+        if (listaCarros.isEmpty()) {
+            System.out.println("Nenhum carro cadastrado!");
+            return;
+        }
+        System.out.println("Escolha o carro:");
+        for (int i = 0; i < listaCarros.size(); i++) {
+            System.out.println(i + " - " + listaCarros.get(i).getMarcaVeiculo() + " " + listaCarros.get(i).getModeloVeiculo());
+        }
+        int indice = Integer.parseInt(scanner.nextLine());
+        listaCarros.get(indice).listarPecas();
+    }
+
+    // ===================== MÉTODOS MOTO =====================
+
+    static void adicionarMoto() {
+        try {
+            System.out.println("Digite a marca da moto:");
+            String marcaMoto = scanner.nextLine();
+            System.out.println("Digite o modelo da moto:");
+            String modeloMoto = scanner.nextLine();
+            System.out.println("Digite o ano da moto:");
+            Integer anoMoto = Integer.parseInt(scanner.nextLine());
+            System.out.println("Digite a cilindrada da moto:");
+            Integer cilindrada = Integer.parseInt(scanner.nextLine());
+
+            listaMotos.add(new Moto(marcaMoto, modeloMoto, anoMoto, cilindrada));
+            System.out.println("Moto adicionada!");
+
+        } catch (NumberFormatException e) {
+            System.out.println("Erro: Digite um valor numérico válido.");
+        }
+    }
+
+    static void adicionarPecaMoto() {
+        if (listaMotos.isEmpty()) {
+            System.out.println("Nenhuma moto cadastrada!");
+            return;
+        }
+        System.out.println("Escolha a moto:");
+        for (int i = 0; i < listaMotos.size(); i++) {
+            System.out.println(i + " - " + listaMotos.get(i).getMarcaVeiculo() + " " + listaMotos.get(i).getModeloVeiculo());
+        }
+        int indice = Integer.parseInt(scanner.nextLine());
+        Moto motoEscolhida = listaMotos.get(indice);
+
+        System.out.println("Digite o nome da peça:");
+        String nomePeca = scanner.nextLine();
+        System.out.println("Digite o valor da peça:");
+        Double valorPeca = Double.parseDouble(scanner.nextLine());
+
+        motoEscolhida.adicionarPecas(nomePeca, valorPeca);
+        System.out.println("Peça adicionada à moto " + motoEscolhida.getMarcaVeiculo() + "!");
+    }
+
+    static void removerPecaMoto() {
+        if (listaMotos.isEmpty()) {
+            System.out.println("Nenhuma moto cadastrada!");
+            return;
+        }
+        System.out.println("Escolha a moto:");
+        for (int i = 0; i < listaMotos.size(); i++) {
+            System.out.println(i + " - " + listaMotos.get(i).getMarcaVeiculo() + " " + listaMotos.get(i).getModeloVeiculo());
+        }
+        int indice = Integer.parseInt(scanner.nextLine());
+        Moto motoEscolhida = listaMotos.get(indice);
+
+        try {
+            System.out.println("Digite o nome da peça:");
+            String nomePeca = scanner.nextLine();
+            motoEscolhida.removerPecas(nomePeca);
+            System.out.println("Peça removida!");
+        } catch (PecaNaoEncontrada e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    static void listarPecasMoto() {
+        if (listaMotos.isEmpty()) {
+            System.out.println("Nenhuma moto cadastrada!");
+            return;
+        }
+        System.out.println("Escolha a moto:");
+        for (int i = 0; i < listaMotos.size(); i++) {
+            System.out.println(i + " - " + listaMotos.get(i).getMarcaVeiculo() + " " + listaMotos.get(i).getModeloVeiculo());
+        }
+        int indice = Integer.parseInt(scanner.nextLine());
+        listaMotos.get(indice).listarPecas();
+    }
+}
